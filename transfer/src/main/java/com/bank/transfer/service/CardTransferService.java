@@ -1,5 +1,6 @@
 package com.bank.transfer.service;
 
+import com.bank.transfer.dto.CardTransferDTO;
 import com.bank.transfer.entity.CardTransfer;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +9,14 @@ import java.util.Optional;
 
 @Service
 public interface CardTransferService {
-    CardTransfer findTransferByCardNumber(Long CardNumber);
-    Optional<CardTransfer> getCardTransferById(Long id);
 
-    List<CardTransfer> allCardTransfer();
+    Optional<CardTransferDTO> getCardTransferById(Long id);
 
-    CardTransfer saveOrUpdateCardTransfer(CardTransfer cardTransfer);
+    List<CardTransferDTO> allCardTransfer();
+
+    CardTransfer saveCardTransfer(CardTransferDTO cardTransferDTO);
+
+    CardTransfer updateCardTransferById(CardTransferDTO cardTransferDTO, long id);
 
     void deleteCardTransfer(Long id);
 }
